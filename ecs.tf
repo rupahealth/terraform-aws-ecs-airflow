@@ -209,6 +209,12 @@ resource "aws_ecs_service" "airflow" {
     container_port   = 8080
     target_group_arn = aws_lb_target_group.airflow.arn
   }
+
+  lifecycle {
+    ignore_changes = [
+      task_definition
+    ]
+  }
 }
 
 resource "aws_lb_target_group" "airflow" {

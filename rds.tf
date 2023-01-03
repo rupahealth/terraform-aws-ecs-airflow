@@ -34,6 +34,12 @@ resource "aws_db_instance" "airflow" {
   performance_insights_enabled = true
 
   tags = local.common_tags
+
+  lifecycle {
+    ignore_changes = [
+      final_snapshot_identifier
+    ]
+  }
 }
 
 resource "aws_db_subnet_group" "airflow" {
