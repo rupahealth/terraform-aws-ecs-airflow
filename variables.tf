@@ -30,7 +30,7 @@ variable "airflow_image_name" {
 variable "airflow_image_tag" {
   type        = string
   description = "The tag of the airflow image"
-  default     = "2.0.1"
+  default     = "2.0.1-python3.8"
 }
 
 variable "airflow_executor" {
@@ -126,13 +126,13 @@ variable "rbac_admin_lastname" {
 variable "ecs_cpu" {
   type        = number
   description = "The allocated cpu for your airflow instance"
-  default     = 1024
+  default     = 2048
 }
 
 variable "ecs_memory" {
   type        = number
   description = "The allocated memory for your airflow instance"
-  default     = 2048
+  default     = 4096
 }
 
 // Networking variables
@@ -278,7 +278,7 @@ variable "s3_bucket_name" {
 }
 
 variable "ecs_cluster" {
-  type = string
-  default = ""
+  type        = string
+  default     = ""
   description = "the ECS Cluster ID to run the ECS service in"
 }
